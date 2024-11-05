@@ -1,13 +1,16 @@
 import clsx from "clsx";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import Input from "./Input";
 import Button from "./Button";
+import { VerificationContext } from "../context/VerificationContext";
 
 function OTPVerficationCard({ className, otpLength = 6 }) {
   const [otp, setOtp] = useState(Array(otpLength).fill(""));
 
   const inputRefs = useRef([]);
   const [timer, setTimer] = useState(600);
+
+  const { userData } = useContext(VerificationContext);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,7 +68,10 @@ function OTPVerficationCard({ className, otpLength = 6 }) {
       </div>
 
       <div className="text-gray-400 text-center mt-16">
-        <p>Please enter the verification code sent to your email id </p>
+        <p>
+          Please enter the verification code sent to your email id{" "}
+          {userData.email}
+        </p>
       </div>
       <div className="flex items-center justify-center mt-5">
         {[...Array(otpLength)].map((_, index) => (

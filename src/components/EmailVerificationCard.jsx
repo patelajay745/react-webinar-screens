@@ -1,19 +1,29 @@
 import clsx from "clsx";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import { VerificationContext } from "../context/VerificationContext";
 
 function EmailVerification({ className }) {
   const [inputValue, setInputValue] = useState(false);
   const navigate = useNavigate();
+  const { userData, setUserData } = useContext(VerificationContext);
+  const [email, setEmail] = useState("");
 
   const Onchange = (e) => {
     if (e.target.value.length > 0) {
       setInputValue(true);
+      setEmail(e.target.value);
     } else {
       setInputValue(false);
+      setEmail(e.target.value);
     }
+  };
+
+  const handleSubmit = () => {
+    setUserData({ email });
+    navigate("/otp");
   };
   return (
     <div
@@ -37,7 +47,7 @@ function EmailVerification({ className }) {
       <div className="flex mt-5 justify-center">
         <Button
           disabled={!inputValue}
-          onClick={() => navigate("/otp")}
+          onClick={handleSubmit}
           className={clsx(
             "text-white  px-10 w-3/4",
             inputValue ? "bg-green-400" : "bg-blue-200"
