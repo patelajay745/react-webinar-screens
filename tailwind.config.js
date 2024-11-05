@@ -3,14 +3,14 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      color: {
+      colors: {
         blue: {
-          200: "#8094ad",
-          500: "#19406s",
-          700: "#002b5b",
+          200: "#7f96ac",
+          500: "#193F6B",
+          700: "#002a5a",
         },
         green: {
-          400: "36c6c0",
+          400: "#40e1d0",
         },
       },
     },

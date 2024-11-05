@@ -6,7 +6,7 @@ import Input from "./components/Input";
 
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="bg-blue-700 min-h-screen flex items-center justify-center">
       <div className="space-x-4">
         <Card />
       </div>
@@ -15,5 +15,3 @@ function App() {
 }
 
 export default App;
-
-

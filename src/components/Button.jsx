@@ -1,9 +1,12 @@
 import React from "react";
 
-function Button({ disbaled, children, onClick,className }) {
+function Button({ disabled, children, onClick, className }) {
   return (
-    <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-      Click me
+    <button
+      disabled={disabled}
+      className={` px-4 py-2 rounded-md ${className}`}
+    >
+      {children}
     </button>
   );
 }
