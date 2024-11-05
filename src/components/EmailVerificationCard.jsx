@@ -21,7 +21,7 @@ function EmailVerification({ className }) {
     >
       <img src="../logo.png" alt="logo" className="mx-auto" />
 
-      <div className="mt-16 text-white text-center text-3xl font-bold px-5">
+      <div className="mt-16 text-white text-center text-3xl  px-5">
         <p>Let's get Started</p>
       </div>
 

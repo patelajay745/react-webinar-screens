@@ -24,11 +24,9 @@ function AgeVerificationCard({ children, className }) {
   };
 
   return (
-    <div
-      className={clsx(`max-w-xl w-[448px] rounded overflow-hidden`, className)}
-    >
+    <div className={clsx(`max-w-xl rounded overflow-hidden`, className)}>
       <img src="../logo.png" alt="logo" className="mx-auto" />
-      <div className="mt-20 font-bold text-3xl text-center text-white">
+      <div className="mt-20  text-3xl text-center text-white">
         <p>Verify Your Age</p>
       </div>
 
