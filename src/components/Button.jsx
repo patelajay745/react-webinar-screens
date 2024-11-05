@@ -8,6 +8,7 @@ function Button({
   className = "",
   size = "md",
   fullWidth = false,
+
   type = "button",
   ...restProps
 }) {
@@ -15,7 +16,7 @@ function Button({
     <button
       type={type}
       disabled={disabled}
-      onClick={onclick}
+      onClick={onClick}
       className={clsx(` px-4 py-2 rounded-md`, className)}
       {...restProps}
     >

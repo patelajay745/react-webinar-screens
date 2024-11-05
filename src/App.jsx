@@ -1,15 +1,13 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import Button from "./components/Button";
-import Card from "./components/Card";
-import Container from "./components/Container";
-import Input from "./components/Input";
+import AgeVerificationCard from "./components/AgeVerificationCard";
+import EmailVerification from "./components/EmailVerificationCard";
+import OTPVerficationCard from "./components/OTPVerficationCard";
 
 function App() {
   return (
     <div className="bg-blue-700 min-h-screen flex items-center justify-center">
-      <div className="space-x-4">
-        <Card />
-      </div>
+      <Outlet />
     </div>
   );
 }

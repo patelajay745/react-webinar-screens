@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import clsx from "clsx";
+import { Navigate, useNavigate } from "react-router-dom";
 
-function Card({ children, className }) {
+function AgeVerificationCard({ children, className }) {
   const [inputValue, setInputValue] = useState(false);
+  const navigate = useNavigate();
 
   const Onchange = (e) => {
     const value = e.target.value.replace(/[^0-9]/g, "");
@@ -22,7 +24,9 @@ function Card({ children, className }) {
   };
 
   return (
-    <div className={`max-w-xl rounded overflow-hidden  ${className}`}>
+    <div
+      className={clsx(`max-w-xl w-[448px] rounded overflow-hidden`, className)}
+    >
       <img src="../logo.png" alt="logo" className="mx-auto" />
       <div className="mt-20 font-bold text-3xl text-center text-white">
         <p>Verify Your Age</p>
@@ -44,6 +48,8 @@ function Card({ children, className }) {
       </div>
       <div className="flex mt-10 justify-center">
         <Button
+          disabled={!inputValue}
+          onClick={() => navigate("/email")}
           className={clsx(
             "text-white  px-10 w-3/4",
             inputValue ? "bg-green-400" : "bg-blue-200"
@@ -56,4 +62,4 @@ function Card({ children, className }) {
   );
 }
 
-export default Card;
+export default AgeVerificationCard;
