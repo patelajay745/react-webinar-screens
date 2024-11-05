@@ -7,10 +7,17 @@ function Card({ children, className }) {
   const [inputValue, setInputValue] = useState(false);
 
   const Onchange = (e) => {
-    if (e.target.value.length > 0) {
+    const value = e.target.value.replace(/[^0-9]/g, "");
+    if (value.length > 0) {
       setInputValue(true);
     } else {
       setInputValue(false);
+    }
+  };
+
+  const onKeyPress = (e) => {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault();
     }
   };
 
@@ -27,8 +34,11 @@ function Card({ children, className }) {
 
       <div className="flex mt-5 justify-center">
         <Input
+          type="text"
+          maxLength={4}
           onChange={Onchange}
-          className="w-3/4 bg-blue-500 border-none outline-none py-3 px-5 text-gray-500"
+          onKeyPress={onKeyPress}
+          className="w-3/4 bg-blue-500 text-white border-none outline-none py-3 px-5 "
           placeholder="Your Birth year"
         />
       </div>
