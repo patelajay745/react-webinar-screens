@@ -1,26 +1,30 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-function Input({
-  type = "text",
-  placeholder,
-  className = "",
-  onChange,
-  value,
-  name,
-  id,
-  disabled = false,
-  required = false,
-  maxLength,
-  minLength,
-  pattern,
-  autoComplete = "off",
-  ...restProps
-}) {
+function Input(
+  {
+    type = "text",
+    placeholder,
+    className = "",
+    onChange,
+    value,
+    name,
+    id,
+    disabled = false,
+    required = false,
+    maxLength,
+    minLength,
+    pattern,
+    autoComplete = "off",
+    ...restProps
+  },
+  ref
+) {
   const baseStyle =
     "border rounded-xl px-4 py-2 outline-none transition-all duration-200";
 
   return (
     <input
+      ref={ref}
       type={type}
       name={name}
       id={id}
@@ -39,4 +43,4 @@ function Input({
   );
 }
 
-export default Input;
+export default forwardRef(Input);
